@@ -33,11 +33,11 @@ public interface IProductService {
 
     List<Product> getProductsByBrandAndName(String category, String name);
 
+    List<ProductDto> getConvertedProducts(List<Product> products);
 
     Long countProductsByBrandAndName(String brand,String name);
 
-
-
+    ProductDto convertToDto(Product product);
 
 
 

@@ -52,10 +52,7 @@ public class ProductService implements IProductService {
         return productRepository.save(createProduct(request, category));
     }
 
-
-    // Move the createProduct method outside of the addProduct method
     private Product createProduct(AddProductRequest request, Category category) {
-
         return new Product(
                 request.getName(),
                 request.getBrand(),
@@ -65,7 +62,6 @@ public class ProductService implements IProductService {
                 category
         );
     }
-
     @Override
     public Product getProductById(Long id) {
         return productRepository.findById(id)
@@ -171,15 +167,10 @@ public class ProductService implements IProductService {
 
 
 
-
     @Override
     public List<ProductDto> getConvertedProducts(List<Product> products) {
         return products.stream().map(this::convertToDto).toList();
     }
-
-
-
-
 
     @Override
     public ProductDto convertToDto(Product product) {
@@ -190,9 +181,6 @@ public class ProductService implements IProductService {
                 .toList();
         productDto.setImages(imageDtos);
         return productDto;
-
-
-
     }
 
 }
